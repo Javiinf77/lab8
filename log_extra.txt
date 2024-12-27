@@ -1,0 +1,9 @@
+gcloud container clusters create echo-cluster --zone us-west1-c --num-nodes=3 --machine-type=e2-standard-2
+docker build -t gcr.io/qwiklabs-gcp-03-5d7a135514f1/echo-app:v2 .
+docker push gcr.io/qwiklabs-gcp-03-5d7a135514f1/echo-app:v2
+kubectl apply -f deployment-v2.yaml
+kubectl apply -f service.yaml
+kubectl get nodes
+kubectl get pods
+curl http://34.123.45.67
+
